@@ -14670,12 +14670,12 @@
     "InstanceType":{
       "type":"string",
       "enum":[
-        a1.medium,
-        a1.large,
-        a1.xlarge,
-        a1.2xlarge,
-        a1.4xlarge,
-        a1.metal,
+        "a1.medium",
+        "a1.large",
+        "a1.xlarge",
+        "a1.2xlarge",
+        "a1.4xlarge",
+        "a1.metal",
         "t1.micro",
         "t2.nano",
         "t2.micro",
