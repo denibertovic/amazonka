@@ -195,20 +195,23 @@ instance FromXML AllocationStrategy where
     parseXML = parseXMLText "AllocationStrategy"
 
 data ArchitectureValues
-  = I386
+  = ARM64
+  | I386
   | X86_64
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
+        "arm64" -> pure ARM64
         "i386" -> pure I386
         "x86_64" -> pure X86_64
         e -> fromTextError $ "Failure parsing ArchitectureValues from value: '" <> e
-           <> "'. Accepted values: i386, x86_64"
+           <> "'. Accepted values: arm64, i386, x86_64"
 
 instance ToText ArchitectureValues where
     toText = \case
+        ARM64 -> "arm64"
         I386 -> "i386"
         X86_64 -> "x86_64"
 
